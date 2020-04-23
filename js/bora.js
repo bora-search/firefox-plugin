@@ -15,6 +15,15 @@ document.addEventListener('DOMContentLoaded', function () {
 
     });
 
+    browser.storage.local.get('activated', function (data) {
+        let activated = data.activated;
+        if(activated === true) {
+            document.getElementById("activated").checked = true;
+        } else {
+            document.getElementById("activated").checked = false;
+        }
+    });
+
     document.getElementById('bora').addEventListener('click', function () {
 
         let enginesPercentageDistrib = {};
@@ -35,6 +44,19 @@ document.addEventListener('DOMContentLoaded', function () {
             });
             window.close();
         }
+    });
+
+    document.getElementById('activated').addEventListener('click', function () {
+        $('#activated').change(function() {
+            if ($(this).prop('checked')) {
+                browser.storage.local.set({'activated': true});
+                document.getElementById("activated").checked = true;
+            }
+            else {
+                browser.storage.local.set({'activated': false});
+                document.getElementById("activated").checked = false;
+            }
+        });
     });
 
     document.getElementById('balance').addEventListener('click', function () {

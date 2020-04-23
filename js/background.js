@@ -8,6 +8,7 @@ browser.runtime.onInstalled.addListener(function (details) {
         });
 
         browser.storage.local.set({'do_redirect': true});
+        browser.storage.local.set({'activated': true});
     }
 
 });
