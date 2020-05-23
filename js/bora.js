@@ -1,6 +1,6 @@
 // Store percentage values when user makes changes
 document.addEventListener('DOMContentLoaded', function () {
-    
+
     Object.keys(SEARCH_ENGINE_URLS).forEach((engine) => {
         let input = document.getElementById(engine);
 
@@ -78,5 +78,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         $('.percentage').text(totalPercentage);
     }
+
+    $('[data-toggle="popover"]').popover();
 
 });
